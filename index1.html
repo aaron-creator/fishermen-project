@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="background-image: url('a1.jpg');">
+    
+<table class="table">
+    <tr>
+        <td> Username </td>
+        <td> <input type="text" class="form-control"> </td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password" class="form-control"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button class="btn btn-success">LOGIN  </button></td>
+    </tr>
+</table>
+</body>
+</html>
+<?php
+if(isset($_POST["submit"]))
+{
+    
+    $name=$_POST["name"];
+    $roll=$_POST["rollno"];
+    $adm=$_POST["Admno"];
+    $college=$_POST["College"];
+    echo "<table class='table'>
+    <tr><td>Name:</td><td>$name</td></tr>
+    <tr><td>Rollno:</td><td>$roll</td></tr>
+    <tr><td>Admno:</td><td>$adm</td></tr>
+    <tr><td>College:</td><td>$college</td></tr>";
+
+$servername="localhost";
+$dbusername="root";
+$dbpassword="";
+$dbname="studentdb";
+$connection = new mysqli($servername,$dbusername,$dbpassword,$dbname);
+$sql="INSERT INTO `students`(`NAME`, `ROLLNO`, `ADMNO`, `COLLEGE`) VALUES ('$name',$roll,$adm,'$college')";
+$result= $connection->query($sql);
+if($result===TRUE)
+{
+    echo "SUCCESS";
+}
+else{
+    echo "Error",$connection->error;
+}
+
+
+}
+?>
