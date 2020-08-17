@@ -75,7 +75,8 @@ if (isset($_POST["login"])) {
 
         header('Location:fishermansearch.php');
 
-    } else {
+    } else 
+    {
         echo "<script>  alert('Invalid Credentials')</script>";
     }
 }

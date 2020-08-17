@@ -9,8 +9,7 @@ if (isset($_POST["email"])) {
 
 
 
-  $sql = "SELECT `id`, `name`, `address`, `mobile`, `email`, `place`, `username`, `password` FROM `addfisherman` WHERE `username`='$email' and `password`='$password'
-";
+  $sql = "SELECT `id`, `name`, `address`, `mobile`, `email`, `place`, `username`, `password` FROM `addfisherman` WHERE `username`='$email' and `password`='$password' ";
   $result = $connection->query($sql);
   if ($result->num_rows > 0) {
 
